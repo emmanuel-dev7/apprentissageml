@@ -59,3 +59,31 @@ prediction des prix de logements
 
 --------
 
+# Méthodologie du modèle House Prices
+
+### 1. Chargement et séparation
+- `train.csv` → features + cible (`SalePrice`)
+- `test.csv` → seulement features
+
+### 2. Préprocessing (robuste et sans fuite de données)
+- Suppression de la colonne `Id`
+- Variables numériques → imputation médiane + StandardScaler
+- Variables catégorielles → imputation "missing" + OneHotEncoder (`handle_unknown='ignore'`)
+
+Le preprocessor est fitté sur **train + test concaténés** → même traitement des catégories rares.
+
+### 3. Modèle
+RandomForestRegressor (400 arbres) :
+- Très robuste aux outliers
+- Gère naturellement les interactions
+- Pas besoin de tuning compliqué pour un bon score de base
+
+### 4. Évaluation
+RMSE calculé sur le set d’entraînement (cross-validation possible en bonus)
+
+### 5. Prédiction & soumission
+Le script `predict.py` charge le modèle + preprocessor → génère `submission.csv` prêt pour Kaggle
+
+### Résultats attendus
+- Score Kaggle ≈ 0.145 – 0.155 → Top 40–50%
+- Avec XGBoost/LightGBM + un peu de tuning → facilement Top 20%
