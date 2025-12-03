@@ -79,7 +79,7 @@ RandomForestRegressor (400 arbres) :
 - Pas besoin de tuning compliqué pour un bon score de base
 
 ### 4. Évaluation
-RMSE calculé sur le set d’entraînement (cross-validation possible en bonus)
+RMSE calculé sur le set d’entraînement 
 
 ### 5. Prédiction & soumission
 Le script `predict.py` charge le modèle + preprocessor → génère `submission.csv` prêt pour Kaggle
@@ -87,3 +87,4 @@ Le script `predict.py` charge le modèle + preprocessor → génère `submission
 ### Résultats attendus
 - Score Kaggle ≈ 0.145 – 0.155 → Top 40–50%
 - Avec XGBoost/LightGBM + un peu de tuning → facilement Top 20%
+![image de comparaison ](image.png)
