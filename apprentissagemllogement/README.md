@@ -4,7 +4,7 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-prediction des prix de logements
+Prediction des prix de logements realises par : koami EMMANUEL DOGBE et Lovatiana Andrianina Nancy RANDRIANARISON
 
 ## Project Organization
 
