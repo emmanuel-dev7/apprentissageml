@@ -1,4 +1,4 @@
-"""Training + visualisation pour le concours House Prices."""
+"""Training + visualisation  House Prices."""
 
 from __future__ import annotations
 
