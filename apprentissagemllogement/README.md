@@ -99,11 +99,30 @@ Entrer les caractéristiques d’un logement :
 - YearBuilt
 - LotArea
 Visualiser plusieurs graphiques :
-- Distribution des prix réels (SalePrice)
-- Importance des variables (si modèle basé arbre)
-- Prédiction vs valeurs réelles sur le dataset d’entraînement
+- Distribution des prix réels (SalePrice) : 
+    * Met en évidence la forme globalement asymétrique des prix (skewed distribution).
+    * Permet d’identifier d’éventuels outliers.
+    * Donne une première idée de la complexité de la prédiction.
+    * Aide à justifier la normalisation ou une transformation log éventuelle.
+    Ce graphique est fondamental pour comprendre la variable cible avant l’entraînement du modèle.
+- Importance des variables (si modèle basé arbre) :
+    * D’interpréter le comportement du modèle,
+    * De valider les choix de features,
+    * D’ajuster éventuellement le preprocessing.
+    Cette visualisation rend le modèle moins “boîte noire” et améliore la transparence des prédictions.
+- Prédiction vs valeurs réelles sur le dataset d’entraînement :
+    * La précision globale du modèle,
+    * La dispersion des erreurs,
+    * Les zones où le modèle surestime ou sous-estime les prix.
+    Ce graphique est rapide, visuel et très utile pour juger de la performance du modèle sans entrer dans des métriques avancées.
+Ces trois visualisations permettent :
+- Une analyse exploratoire (EDA) simple,
+- Une compréhension intuitive du comportement du modèle,
+- Une évaluation visuelle de la qualité des prédictions.
+Elles renforcent la crédibilité de l'application et facilitent l’interprétation des résultats.
 Obtenir une prédiction :
 Le bouton "Prédire le prix" utilise `model.pkl` pour afficher le prix estimé.
+
 
 ### Résultats attendus
 - Score Kaggle ≈ 0.145 – 0.155 → Top 40–50%
