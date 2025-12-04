@@ -12,6 +12,8 @@ prediction des prix de logements
 ├── LICENSE            <- Open-source license if one is chosen
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
+├── app/
+│   └── app.py         <- Application Streamlit
 ├── data
 │   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
@@ -52,7 +54,8 @@ prediction des prix de logements
     ├── modeling                
     │   ├── __init__.py 
     │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
+    │   └── train_model.py      <- Code to train models
+    │   └── train_pkl.py        <- Code to train model.pkl
     │
     └── plots.py                <- Code to create visualizations
 ```
@@ -80,11 +83,31 @@ RandomForestRegressor (400 arbres) :
 
 ### 4. Évaluation
 RMSE calculé sur le set d’entraînement 
+Ce score reflète la qualité de généralisation du modèle.
 
 ### 5. Prédiction & soumission
 Le script `predict.py` charge le modèle + preprocessor → génère `submission.csv` prêt pour Kaggle
+Le script `train_pkl.py` charge `train.csv` prépare les donnees (preprocessing) puis entraine le modele apres génère le `model.pkl` puis `app.py` charge `model.pkl` pour faire les prédictions
+
+### Création d'une application Streamlit 
+L’application app/app.py permet de :
+Entrer les caractéristiques d’un logement :
+- GrLivArea
+- OverallQual
+- GarageCars
+- TotalBsmtSF
+- YearBuilt
+- LotArea
+Visualiser plusieurs graphiques :
+- Distribution des prix réels (SalePrice)
+- Importance des variables (si modèle basé arbre)
+- Prédiction vs valeurs réelles sur le dataset d’entraînement
+Obtenir une prédiction :
+Le bouton "Prédire le prix" utilise `model.pkl` pour afficher le prix estimé.
 
 ### Résultats attendus
 - Score Kaggle ≈ 0.145 – 0.155 → Top 40–50%
 - Avec XGBoost/LightGBM + un peu de tuning → facilement Top 20%
 ![image de comparaison ](image.png)
+
+
