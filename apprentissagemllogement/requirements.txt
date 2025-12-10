@@ -10,3 +10,5 @@ python-dotenv
 ruff
 scikit-learn
 -e .
+xgboost
+lightgbm
